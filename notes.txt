@@ -1,5 +1,6 @@
 video model- title, description, small_cover_url, large_cover_url
-
+PATH="/Applications/Postgres93.app/Contents/MacOS/bin:$PATH:$PATH"
+export PGHOST=/var/pgsql_socket
 
 HEADS UP! Haml 4.0 has many improvements, but also has changes that may break
 your application:
