@@ -1,3 +1,8 @@
+Christopher Cano
+Tealeaf Online Bootcamp
+Course 3
+Project: myflix (Netflix clone) using Ruby on Rails
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
