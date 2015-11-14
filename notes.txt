@@ -47,3 +47,9 @@ describe Todo do
     end
   end
 end
+
+
+%form.col-md-5.navbar-form(action="")
+    .form-group
+      %input.form-control(type="text" placeholder="Search for videos here")
+    %button.btn.btn-default(type="submit") Search

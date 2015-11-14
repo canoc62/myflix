@@ -1,0 +1,4 @@
+%article.video_category
+	- @searched_videos.each do |video|
+		= link_to video do
+			%img(src="#{video.small_cover_url}")
