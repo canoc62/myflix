@@ -7,14 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-vid1 = Video.create(title: "Monk", description: "Monk tv show.", small_cover_url: "/tmp/monk.jpg", large_cover_url: "/tmp/monk_large.jpg")
-vid2 = Video.create(title: "Futurama", description: "Futurama tv show.", small_cover_url: "/tmp/futurama.jpg", large_cover_url: "/tmp/futurama.jpg")
-vid3 = Video.create(title: "South Park", description: "South Park tv show.", small_cover_url: "/tmp/south_park.jpg", large_cover_url: "/tmp/south_park.jpg")
 
 cat1 = Category.create(name: "TV Show Comedy") 
 cat2 = Category.create(name: "TV Show Drama")
 cat3 = Category.create(name: "TV Show Action")
 
-cat1.videos << vid1
-cat1.videos << vid2
-cat1.videos << vid3
+vid1 = Video.create(title: "Monk", description: "Monk tv show.", category: cat2, small_cover_url: "/tmp/monk.jpg", large_cover_url: "/tmp/monk_large.jpg")
+vid2 = Video.create(title: "Futurama", description: "Futurama tv show.", category: cat1, small_cover_url: "/tmp/futurama.jpg", large_cover_url: "/tmp/futurama.jpg")
+vid3 = Video.create(title: "South Park", description: "South Park tv show.", category: cat1, small_cover_url: "/tmp/south_park.jpg", large_cover_url: "/tmp/south_park.jpg")
+vid4 = Video.create(title: "Monk", description: "Monk tv show.", category: cat2, small_cover_url: "/tmp/monk.jpg", large_cover_url: "/tmp/monk_large.jpg")
+vid5 = Video.create(title: "Futurama", description: "Futurama tv show.", category: cat1, small_cover_url: "/tmp/futurama.jpg", large_cover_url: "/tmp/futurama.jpg")
+vid6 = Video.create(title: "South Park", description: "South Park tv show.", category: cat1, small_cover_url: "/tmp/south_park.jpg", large_cover_url: "/tmp/south_park.jpg")
+vid7 = Video.create(title: "Monk", description: "Monk tv show.", category: cat2, small_cover_url: "/tmp/monk.jpg", large_cover_url: "/tmp/monk_large.jpg")
+vid8 = Video.create(title: "Futurama", description: "Futurama tv show.", category: cat1, small_cover_url: "/tmp/futurama.jpg", large_cover_url: "/tmp/futurama.jpg")
+vid9 = Video.create(title: "South Park", description: "South Park tv show.", category: cat1, small_cover_url: "/tmp/south_park.jpg", large_cover_url: "/tmp/south_park.jpg")
+vid10 = Video.create(title: "South Park", description: "South Park tv show.", category: cat1, small_cover_url: "/tmp/south_park.jpg", large_cover_url: "/tmp/south_park.jpg")
