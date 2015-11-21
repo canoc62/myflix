@@ -15,10 +15,11 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    @reviews = @video.reviews
   end
 
   def search
-    @searched_videos = Video.search_by_title(params[:search_term])
+    @results = Video.search_by_title(params[:search_term])
     #redirect_to search_video_path
   end
 

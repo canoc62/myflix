@@ -53,3 +53,11 @@ end
     .form-group
       %input.form-control(type="text" placeholder="Search for videos here")
     %button.btn.btn-default(type="submit") Search
+
+
+
+
+    fabricate reviews and reviews are set as instance variables, order of reviews is reverse chronically ordered (most recent reviews at top), average rating for a video right under title which reflects average of ratings in the reviews (can keep to one decimal point)
+
+
+    write test first for controller, success path, the validation error path, review has to have content. not authorized path (if user is not signed in they cannot add a review)
