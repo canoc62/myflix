@@ -14,7 +14,6 @@ describe UsersController do
         post :create, user: Fabricate.attributes_for(:user)
       end
       it "creates the user" do
-        #post :create, user: #{ email: "example@example.com", password: 'password', full_name: 'example'}
         expect(User.count).to eq(1)
       end
       it "redirects to sign in page" do
@@ -27,7 +26,6 @@ describe UsersController do
         post :create, user: { email: "example@example.com", password: 'password'}
       end
       it "does not create the user" do
-        #post :create, user: { email: "example@example.com", password: 'password'}
         expect(User.count).to eq(0)
       end
       it "renders the :new template" do

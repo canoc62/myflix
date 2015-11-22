@@ -1,18 +1,21 @@
 require 'spec_helper'
 
 describe ReviewsController do 
+
   describe "POST create" do
     let(:video) {Fabricate(:video)}
+
     context "with authenticated users" do
       let(:current_user) { Fabricate(:user) }
       before { session[:user_id] = current_user.id }
+
       context "with valid inputs" do
         before do
           review = Fabricate.attributes_for(:review)
           post :create, review: review, video_id: video.id
         end
         it "redirects to video show page if submission is successful" do
-          expect(response).to redirect_to video_path(video)
+          expect(response).to redirect_to video
         end
         it "creates the review" do
           expect(Review.count).to eq(1)

@@ -1,12 +1,8 @@
 class ReviewsController < ApplicationController
   before_filter :require_user
 	def create
-    #binding.pry
     @video = Video.find(params[:video_id])
-    review = Review.new(review_params)#@review = Review.new(review_params)
-    #review = @video.reviews.build(review_params.merge!(user: current_user))
-    @video.reviews << review
-    current_user.reviews << review
+    review = @video.reviews.build(review_params.merge!(user: current_user))
 
     if review.save
       redirect_to video_path(@video)
