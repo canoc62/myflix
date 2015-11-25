@@ -3,7 +3,6 @@ class Category < ActiveRecord::Base
   validates :name, presence: true 
 
   def recent_videos
-  	#return [] if videos.nil?
-  	recent_vids = videos.first(6)#self.videos.where("created_at DESC")
+  	recent_vids = videos.first(6)
   end
 end

@@ -5,7 +5,6 @@ class Video < ActiveRecord::Base
 
 	validates :title, presence: true
 	validates :description, presence: true
-	#validates_presence_of :title, :description, use this for many presence validations
 
 	def self.search_by_title(title)
 		return [] if title.blank?
