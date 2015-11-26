@@ -110,9 +110,11 @@ describe QueueItemsController do
 
     context "input validation" do
       let(:user) { Fabricate(:user) }
+      let(:video) { Fabricate(:video) }
+      let(:video_2) { Fabricate(:video) }
       before { session[:user_id] = user.id }
-      let(:queue_item_1) { Fabricate(:queue_item, user: user, position: 1) }
-      let(:queue_item_2) { Fabricate(:queue_item, user: user, position: 2) }
+      let(:queue_item_1) { Fabricate(:queue_item, user: user, video: video, position: 1) }
+      let(:queue_item_2) { Fabricate(:queue_item, user: user, video: video_2, position: 2) }
 
       context "with valid inputs" do
         

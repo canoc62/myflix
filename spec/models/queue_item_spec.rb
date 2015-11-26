@@ -31,6 +31,33 @@ describe QueueItem do
     end
   end
 
+  describe "#rating=" do
+    context "with present reviews" do
+      let(:user) { Fabricate(:user) }
+      let(:video) { Fabricate(:video) }
+      let(:review) {Fabricate(:review, rating: 5, user: user, video: video) }
+      let(:queue_item) { Fabricate(:queue_item, user: user, video: video) }
+
+      it "changes the rating of the video" do
+        queue_item.rating = 4
+        expect(video.reviews.first.rating).to eq(4)
+      end
+      it "can clear the rating of the video" do
+        queue_item.rating = nil
+        expect(video.reviews.first.rating).to be_nil
+      end
+    end
+
+    it "creates a new review with rating if the review of the video does not yet exist" do
+      user = Fabricate(:user)
+      video = Fabricate(:video)
+      queue_item = Fabricate(:queue_item, user: user, video: video)
+      queue_item.rating = 5
+      expect(video.reviews.first.rating).to eq(5)
+    end
+  end
+  
+
   describe "#category_name" do
     it "should return the associated video's category name" do
       category = Fabricate(:category, name: 'Queue Category')
