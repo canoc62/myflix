@@ -12,7 +12,7 @@ describe VideosController do
         expect(assigns(:video)).to eq(video)
       end
 
-      it "sets @reviews instance variabe for authenticated users" do
+      it "sets @reviews instance variable for authenticated users" do
         review_1 = Fabricate(:review, video: video)
         review_2 = Fabricate(:review, video: video)
         get :show, id: video.id
@@ -20,12 +20,9 @@ describe VideosController do
       end
     end
 
-    context "with unauthenticated users" do
-      it "redirects the user to the sign in page" do
-        video = Fabricate(:video)
-        get :show, id: video.id
-        expect(response).to redirect_to sign_in_path
-      end
+    it_behaves_like "requires sign in" do
+      video = Fabricate(:video)
+      let(:action) { get :show, id: video.id }
     end
   end
 
@@ -34,13 +31,12 @@ describe VideosController do
       session[:user_id] = Fabricate(:user).id
       futurama = Fabricate(:video, title: 'Futurama')
       post :search, search_term: 'rama'
-      expect(assigns(:results)).to eq([futurama])
+      expect(assigns(:results)).to include(futurama)
     end
 
-    it "redirects to sign in page for unauthenticated users" do
+    it_behaves_like "requires sign in" do
       futurama = Fabricate(:video, title: 'Futurama')
-      post :search, search_term: 'rama'
-      expect(response).to redirect_to sign_in_path
+      let(:action) { post :search, search_term: 'rama' }
     end
   end
 end

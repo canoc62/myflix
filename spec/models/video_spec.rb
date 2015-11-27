@@ -13,9 +13,9 @@ describe Video do
       expect(Video.search_by_title("hello")).to eq([])
     end
   	it "returns an array of one video for an exact match" do
-      futurama = Video.create(title: "Futurama", description: "Space cartoon.")
+      dragon_ball = Fabricate(:video, title: "Dragon Ball")
       back_to_future = Video.create(title: "Back to the Future", description: "Time travel movie.")
-      expect(Video.search_by_title("Futurama")).to eq([futurama])
+      expect(Video.search_by_title("Dragon Ball")).to eq([dragon_ball])
     end
   	it "returns an array of one video for a partial match" do
       futurama = Video.create(title: "Futurama", description: "Space cartoon.")
@@ -23,10 +23,10 @@ describe Video do
       expect(Video.search_by_title("Ba")).to eq([back_to_future])
     end
   	it "returns an array of all matches ordered by created_at" do
-      futurama = Video.create(title: "Futurama", description: "Space cartoon.", created_at: 2.days.ago )
-      back_to_future = Video.create(title: "Back to the Future", description: "Time travel movie.", created_at: 1.day.ago)
-      back_to_future_two = Video.create(title: "Back to the Future 2", description: "Time travel movie 2.")
-      expect(Video.search_by_title("utur")).to eq([back_to_future_two, back_to_future, futurama])
+      video_1 = Fabricate(:video, title: "Dragon Ball", created_at: 2.days.ago)
+      video_2 = Fabricate(:video, title: "Dragon Ball Z", created_at: 1.day.ago)
+      video_3 = Fabricate(:video, title: "Dragon Ball Super")
+      expect(Video.search_by_title("Dragon")).to eq([video_3, video_2, video_1])
     end
     it "returns an empty array for a search with an empty string" do
       futurama = Video.create(title: "Futurama", description: "Space cartoon.", created_at: 1.day.ago )
